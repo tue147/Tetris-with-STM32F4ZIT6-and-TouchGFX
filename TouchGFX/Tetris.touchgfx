@@ -84,6 +84,17 @@
               "ScreenTransitionDirection": "East",
               "ActionComponent": "Screen1"
             }
+          },
+          {
+            "InteractionName": "tickEvent",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "tickEvent"
+            }
           }
         ]
       },

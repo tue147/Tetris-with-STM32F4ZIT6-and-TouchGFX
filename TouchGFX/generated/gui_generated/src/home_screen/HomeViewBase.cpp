@@ -62,3 +62,11 @@ void HomeViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
         application().gotoScreen1ScreenCoverTransitionEast();
     }
 }
+
+void HomeViewBase::handleTickEvent()
+{
+    //tickEvent
+    //When every N tick call virtual function
+    //Call tickEvent
+    tickEvent();
+}

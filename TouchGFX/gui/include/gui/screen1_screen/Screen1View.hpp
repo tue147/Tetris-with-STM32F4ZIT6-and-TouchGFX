@@ -3,6 +3,7 @@
 
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
+#include "cmsis_os.h"
 
 // Enumeration for different Tetromino types
 enum class TetrominoType {
@@ -178,6 +179,12 @@ private:
     	currentSubTickCount -= speedUpCoefficient;
     	if (currentSubTickCount < minSubTickCount) currentSubTickCount = minSubTickCount;
 	}
+
+    // Manually change screen
+    void changeScreen(){
+    	application().gotoHomeScreenSlideTransitionEast();
+    	osDelay(200);
+    }
 };
 
 #endif // SCREEN1VIEW_HPP

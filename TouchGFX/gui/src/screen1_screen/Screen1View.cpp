@@ -6,6 +6,7 @@
 #include <cmsis_os2.h>
 
 extern uint16_t highestScore;
+extern osMessageQueueId_t myQueue01Handle;
 
 const int Tetromino::relativePositions[COUNT][ROTATION_STATES][TETROMINO_TILE_COUNT][2] = {
     // I Tetromino
@@ -155,6 +156,10 @@ Screen1View::Screen1View()
 	}
 	Unicode::snprintf(scoreBuffer1, SCOREBUFFER1_SIZE, "%u", currentScore);
 	Unicode::snprintf(scoreBuffer2, SCOREBUFFER2_SIZE, "%u", highestScore);
+	uint8_t res;
+	if (osMessageQueueGetCount(myQueue01Handle) > 0){
+		osMessageQueueGet(myQueue01Handle, &res, NULL, osWaitForever);
+	}
 }
 
 Screen1View::~Screen1View()
@@ -320,12 +325,11 @@ void Screen1View::RotateTetromino()
     invalidate();
 }
 
-extern osMessageQueueId_t myQueue01Handle;
-
 void Screen1View::Move(){
 	uint8_t res;
 	if (osMessageQueueGetCount(myQueue01Handle) > 0){
 		osMessageQueueGet(myQueue01Handle, &res, NULL, osWaitForever);
+		if (!tetrominoActive) changeScreen();
 		if (res == 'L'){
 			MoveTetromino(-step, 0);
 		}

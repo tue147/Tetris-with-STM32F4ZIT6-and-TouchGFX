@@ -13,36 +13,36 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	0	static
 ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:26:18:virtual void Screen1ViewBase::tickEvent()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:173:6:virtual void Screen1View::tearDownScreen()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:160:1:Screen1View::~Screen1View()	16	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:160:1:virtual Screen1View::~Screen1View()	8	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:178:6:virtual void Screen1View::tearDownScreen()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:165:1:Screen1View::~Screen1View()	16	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:165:1:virtual Screen1View::~Screen1View()	8	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:121:18:virtual void touchgfx::Drawable::invalidateContent() const	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:45:18:virtual void touchgfx::Widget::getLastChild(int16_t, int16_t, touchgfx::Drawable**)	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:233:10:void touchgfx::Drawable::setPosition(int16_t, int16_t, int16_t, int16_t)	24	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:33:5:touchgfx::Box::Box()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:63:1:Tetromino::Tetromino()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:105:26:touchgfx::BoxWithBorder* Tetromino::getTile(int)	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:112:6:void Tetromino::updateTilePositions()	32	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:70:6:void Tetromino::initialize(TetrominoType, int, int, int, TetriTileID)	24	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:87:6:void Tetromino::move(int, int)	4	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:95:6:void Tetromino::rotate()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:123:6:void Tetromino::reset()	32	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:136:13:TetriTileID Tetromino::getTiles()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:178:6:void Screen1View::gameOver()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:209:15:TetrominoType Screen1View::getRandomStarterTetrominoType()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:213:15:TetrominoType Screen1View::getRandomTetrominoType()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:218:13:TetriTileID Screen1View::findFreeTiles()	12	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:257:6:bool Screen1View::CheckCollision(int, int, Tetromino&)	32	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:231:6:void Screen1View::CreateNewTetromino(bool)	112	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:287:6:bool Screen1View::MoveTetromino(int, int)	24	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:422:6:virtual void Screen1View::MoveDown()	8	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:428:6:virtual void Screen1View::MoveLeft()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:433:6:virtual void Screen1View::MoveRight()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:305:6:void Screen1View::RotateTetromino()	16	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:438:6:virtual void Screen1View::Rotate()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:325:6:void Screen1View::Move()	24	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:384:6:void Screen1View::eraseFullRows(bool*)	72	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:344:6:virtual void Screen1View::handleTickEvent()	48	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:145:1:Screen1View::Screen1View()	32	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:193:6:void Screen1View::CreateGrid()	40	static
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:165:6:virtual void Screen1View::setupScreen()	8	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:64:1:Tetromino::Tetromino()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:106:26:touchgfx::BoxWithBorder* Tetromino::getTile(int)	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:113:6:void Tetromino::updateTilePositions()	32	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:71:6:void Tetromino::initialize(TetrominoType, int, int, int, TetriTileID)	24	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:88:6:void Tetromino::move(int, int)	4	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:96:6:void Tetromino::rotate()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:124:6:void Tetromino::reset()	32	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:137:13:TetriTileID Tetromino::getTiles()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:183:6:void Screen1View::gameOver()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:214:15:TetrominoType Screen1View::getRandomStarterTetrominoType()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:218:15:TetrominoType Screen1View::getRandomTetrominoType()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:223:13:TetriTileID Screen1View::findFreeTiles()	12	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:262:6:bool Screen1View::CheckCollision(int, int, Tetromino&)	32	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:236:6:void Screen1View::CreateNewTetromino(bool)	112	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:292:6:bool Screen1View::MoveTetromino(int, int)	24	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:425:6:virtual void Screen1View::MoveDown()	8	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:431:6:virtual void Screen1View::MoveLeft()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:436:6:virtual void Screen1View::MoveRight()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:310:6:void Screen1View::RotateTetromino()	16	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:441:6:virtual void Screen1View::Rotate()	0	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:328:6:void Screen1View::Move()	24	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:387:6:void Screen1View::eraseFullRows(bool*)	72	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:348:6:virtual void Screen1View::handleTickEvent()	48	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:146:1:Screen1View::Screen1View()	40	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:198:6:void Screen1View::CreateGrid()	40	static
+C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:170:6:virtual void Screen1View::setupScreen()	8	static

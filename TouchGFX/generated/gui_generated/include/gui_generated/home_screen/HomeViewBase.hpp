@@ -19,6 +19,15 @@ public:
     HomeViewBase();
     virtual ~HomeViewBase();
     virtual void setupScreen();
+    virtual void handleTickEvent();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void tickEvent()
+    {
+        // Override and implement this function in Home
+    }
 
 protected:
     FrontendApplication& application() {
