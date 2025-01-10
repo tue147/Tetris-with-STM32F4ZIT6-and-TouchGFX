@@ -1,2 +1,2 @@
-C:/TouchGFXProjects/Tetris/TouchGFX/generated/fonts/src/Table_verdana_22_4bpp.cpp:33:167:void __tcf_0()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/generated/fonts/src/Table_verdana_22_4bpp.cpp:31:26:touchgfx::GeneratedFont& getFont_verdana_22_4bpp()	3
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/generated/fonts/src/Table_verdana_22_4bpp.cpp:33:167:void __tcf_0()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/generated/fonts/src/Table_verdana_22_4bpp.cpp:31:26:touchgfx::GeneratedFont& getFont_verdana_22_4bpp()	3

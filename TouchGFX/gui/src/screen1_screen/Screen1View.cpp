@@ -7,6 +7,16 @@
 
 extern uint16_t highestScore;
 extern osMessageQueueId_t myQueue01Handle;
+extern uint32_t random_number;
+extern int play2;
+extern int play3;
+
+int random(int systick) {
+    static int a = 828172;
+    static int b = 552619;
+    static int md = 998244353;
+    return int(((long long)a * systick % md * systick + b) % md);
+}
 
 const int Tetromino::relativePositions[COUNT][ROTATION_STATES][TETROMINO_TILE_COUNT][2] = {
     // I Tetromino
@@ -212,12 +222,14 @@ void Screen1View::CreateGrid()
 }
 
 TetrominoType Screen1View::getRandomStarterTetrominoType(){
-	return tetrominoTypes[(timerCount + highestScore * highestScore) % COUNT];
+	return tetrominoTypes[random(timerCount) % COUNT];
+//	return tetrominoTypes[(timerCount + 3 * random_number + highestScore) % COUNT];
 }
 
 TetrominoType Screen1View::getRandomTetrominoType()
 {
-    return tetrominoTypes[(tickCount + timerCount + highestScore) % COUNT];
+	return tetrominoTypes[random(timerCount) % COUNT];
+//    return tetrominoTypes[(tickCount + timerCount + highestScore + random_number) % COUNT];
 }
 
 TetriTileID Screen1View::findFreeTiles(){
@@ -358,6 +370,7 @@ void Screen1View::handleTickEvent()
             // Fix the current tetromino blocks
             bool checkFullRows[MAX_ROWS] = {};
             bool checkErase = false;
+            play2 = 1;
             for(int i = 0; i < currentTetromino.getTileCount(); ++i) {
                 BoxWithBorder* tile = currentTetromino.getTile(i);
                 tile->setColor(touchgfx::Color::getColorFromRGB(200, 200, 200)); // Fixed block color
@@ -419,6 +432,7 @@ void Screen1View::eraseFullRows(bool* checkFullRows){
 		touchgfx::Unicode::snprintf(scoreBuffer2, SCOREBUFFER2_SIZE, "%u", currentScore);
 
 	}
+	play3 = 1;
 	invalidate();
 }
 

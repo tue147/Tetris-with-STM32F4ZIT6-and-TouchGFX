@@ -13,36 +13,37 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:104:18:virtual void touchgfx::Screen::afterTransition()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	1
 ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:26:18:virtual void Screen1ViewBase::tickEvent()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:178:6:virtual void Screen1View::tearDownScreen()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:165:1:Screen1View::~Screen1View()	3
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:165:1:virtual Screen1View::~Screen1View()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:188:6:virtual void Screen1View::tearDownScreen()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:175:1:Screen1View::~Screen1View()	3
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:175:1:virtual Screen1View::~Screen1View()	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:121:18:virtual void touchgfx::Drawable::invalidateContent() const	2
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp:45:18:virtual void touchgfx::Widget::getLastChild(int16_t, int16_t, touchgfx::Drawable**)	3
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Drawable.hpp:233:10:void touchgfx::Drawable::setPosition(int16_t, int16_t, int16_t, int16_t)	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Box.hpp:33:5:touchgfx::Box::Box()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:64:1:Tetromino::Tetromino()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:106:26:touchgfx::BoxWithBorder* Tetromino::getTile(int)	2
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:113:6:void Tetromino::updateTilePositions()	2
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:71:6:void Tetromino::initialize(TetrominoType, int, int, int, TetriTileID)	2
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:88:6:void Tetromino::move(int, int)	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:96:6:void Tetromino::rotate()	2
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:124:6:void Tetromino::reset()	2
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:137:13:TetriTileID Tetromino::getTiles()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:183:6:void Screen1View::gameOver()	2
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:214:15:TetrominoType Screen1View::getRandomStarterTetrominoType()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:218:15:TetrominoType Screen1View::getRandomTetrominoType()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:223:13:TetriTileID Screen1View::findFreeTiles()	4
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:262:6:bool Screen1View::CheckCollision(int, int, Tetromino&)	12
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:236:6:void Screen1View::CreateNewTetromino(bool)	5
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:292:6:bool Screen1View::MoveTetromino(int, int)	3
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:425:6:virtual void Screen1View::MoveDown()	2
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:431:6:virtual void Screen1View::MoveLeft()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:436:6:virtual void Screen1View::MoveRight()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:310:6:void Screen1View::RotateTetromino()	3
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:441:6:virtual void Screen1View::Rotate()	1
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:328:6:void Screen1View::Move()	8
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:387:6:void Screen1View::eraseFullRows(bool*)	9
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:348:6:virtual void Screen1View::handleTickEvent()	9
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:146:1:Screen1View::Screen1View()	5
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:198:6:void Screen1View::CreateGrid()	2
-C:/TouchGFXProjects/Tetris/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:170:6:virtual void Screen1View::setupScreen()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:14:5:int random(int)	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:74:1:Tetromino::Tetromino()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:116:26:touchgfx::BoxWithBorder* Tetromino::getTile(int)	2
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:123:6:void Tetromino::updateTilePositions()	2
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:81:6:void Tetromino::initialize(TetrominoType, int, int, int, TetriTileID)	2
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:98:6:void Tetromino::move(int, int)	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:106:6:void Tetromino::rotate()	2
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:134:6:void Tetromino::reset()	2
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:147:13:TetriTileID Tetromino::getTiles()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:193:6:void Screen1View::gameOver()	2
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:229:15:TetrominoType Screen1View::getRandomTetrominoType()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:224:15:TetrominoType Screen1View::getRandomStarterTetrominoType()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:235:13:TetriTileID Screen1View::findFreeTiles()	4
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:274:6:bool Screen1View::CheckCollision(int, int, Tetromino&)	12
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:248:6:void Screen1View::CreateNewTetromino(bool)	5
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:304:6:bool Screen1View::MoveTetromino(int, int)	3
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:439:6:virtual void Screen1View::MoveDown()	2
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:445:6:virtual void Screen1View::MoveLeft()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:450:6:virtual void Screen1View::MoveRight()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:322:6:void Screen1View::RotateTetromino()	3
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:455:6:virtual void Screen1View::Rotate()	1
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:340:6:void Screen1View::Move()	8
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:400:6:void Screen1View::eraseFullRows(bool*)	9
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:360:6:virtual void Screen1View::handleTickEvent()	9
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:156:1:Screen1View::Screen1View()	5
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:208:6:void Screen1View::CreateGrid()	2
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:180:6:virtual void Screen1View::setupScreen()	1

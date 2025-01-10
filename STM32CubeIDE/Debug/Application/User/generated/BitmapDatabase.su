@@ -1,2 +1,2 @@
-C:/TouchGFXProjects/Tetris/TouchGFX/generated/images/src/BitmapDatabase.cpp:23:37:const touchgfx::Bitmap::BitmapData* BitmapDatabase::getInstance()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/generated/images/src/BitmapDatabase.cpp:28:10:uint16_t BitmapDatabase::getInstanceSize()	0	static
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/generated/images/src/BitmapDatabase.cpp:23:37:const touchgfx::Bitmap::BitmapData* BitmapDatabase::getInstance()	0	static
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/generated/images/src/BitmapDatabase.cpp:28:10:uint16_t BitmapDatabase::getInstanceSize()	0	static

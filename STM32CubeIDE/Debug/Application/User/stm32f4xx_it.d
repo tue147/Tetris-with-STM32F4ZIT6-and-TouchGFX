@@ -1,5 +1,6 @@
 Application/User/stm32f4xx_it.o: \
- C:/TouchGFXProjects/Tetris/Core/Src/stm32f4xx_it.c ../../Core/Inc/main.h \
+ E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_it.c \
+ ../../Core/Inc/main.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../../Core/Inc/stm32f4xx_hal_conf.h \
  ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \

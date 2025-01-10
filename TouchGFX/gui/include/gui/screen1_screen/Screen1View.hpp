@@ -108,7 +108,7 @@ public:
     Screen1View& operator=(const Screen1View&) = delete;
 
     // Grid parameters
-	static const int step = 20;
+	static const int step = 240/8;
 	static const int maxSubTickCount = 60;
 	static const int minSubTickCount = 20;
 	static const int speedUpCoefficient = 5;

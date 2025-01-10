@@ -1,5 +1,5 @@
 Application/User/generated/HomeViewBase.o: \
- C:/TouchGFXProjects/Tetris/TouchGFX/generated/gui_generated/src/home_screen/HomeViewBase.cpp \
+ E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/generated/gui_generated/src/home_screen/HomeViewBase.cpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/home_screen/HomeViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \

@@ -1,2 +1,2 @@
-C:/TouchGFXProjects/Tetris/TouchGFX/generated/fonts/src/Table_arial_14_4bpp.cpp:202:186:void __tcf_0()	0	static
-C:/TouchGFXProjects/Tetris/TouchGFX/generated/fonts/src/Table_arial_14_4bpp.cpp:200:26:touchgfx::GeneratedFont& getFont_arial_14_4bpp()	72	static
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/generated/fonts/src/Table_arial_14_4bpp.cpp:202:186:void __tcf_0()	0	static
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/generated/fonts/src/Table_arial_14_4bpp.cpp:200:26:touchgfx::GeneratedFont& getFont_arial_14_4bpp()	72	static

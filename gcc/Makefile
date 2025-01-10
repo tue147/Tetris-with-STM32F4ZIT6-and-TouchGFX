@@ -56,7 +56,7 @@ flash intflash: all
 # Additional components can be added to this list. make will look for
 # source files recursively in comp_name/src and setup an include directive
 # for comp_name/include.
-components := TouchGFX/gui target TouchGFX/generated/gui_generated
+components := TouchGFX/gui TouchGFX/target TouchGFX/generated/gui_generated
 touchgfx_generator_components := TouchGFX/target TouchGFX/App
 cubemx_components := Core Drivers/STM32F4xx_HAL_Driver
 
