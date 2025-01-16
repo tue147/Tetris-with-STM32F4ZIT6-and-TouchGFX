@@ -91,6 +91,13 @@ const osThreadAttr_t GUI_Task_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
+osThreadId_t songTaskHandle;
+const osThreadAttr_t songTask_attributes = {
+  .name = "songTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+
 osMessageQueueId_t myQueue01Handle;
 const osMessageQueueAttr_t myQueue01_attributes = {
   .name = "Queue1"
@@ -113,6 +120,7 @@ void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
+void StartSongTask(void *argument);
 static void BSP_SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram, FMC_SDRAM_CommandTypeDef *Command);
 
 
@@ -374,7 +382,7 @@ int divider = 0, noteDuration = 0;
 
 #define notes (int)sizeof(melody)/sizeof(melody[0])/2
 
-void tone(TIM_HandleTypeDef *htim, uint32_t channel, uint16_t frequency) {
+void tone(TIM_HandleTypeDef *htim, uint32_t channel, uint16_t frequency, uint8_t duration) {
     uint32_t period = 1000000 / frequency; // Chu kỳ của tín hiệu PWM (μs)
     uint32_t pulse = period / 2;          // Độ rộng xung (50% duty cycle)
 
@@ -384,16 +392,18 @@ void tone(TIM_HandleTypeDef *htim, uint32_t channel, uint16_t frequency) {
 
     // Bật PWM
     HAL_TIM_PWM_Start(htim, channel);
-    osDelay(100);
+	osDelay(duration);   // how long the tone will play
 }
 
 void noTone(TIM_HandleTypeDef *htim, uint32_t channel) {
     HAL_TIM_PWM_Stop(htim, channel); // Tắt tín hiệu PWM
 }
 
-void prepSound(void) {
-	 for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+int play = 0;
 
+void playOpeningSound(TIM_HandleTypeDef *htim, uint32_t channel) {
+	  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
+		  if (!play) return;
 	    // calculates the duration of each note
 	    divider = melody[thisNote + 1];
 	    if (divider > 0) {
@@ -401,30 +411,19 @@ void prepSound(void) {
 	      noteDuration = (wholenote) / divider;
 	    } else if (divider < 0) {
 	      // dotted notes are represented with negative durations!!
-	      noteDuration = (wholenote) / (-divider);
+	      noteDuration = (wholenote) / (- divider);
 	      noteDuration *= 1.5; // increases the duration in half for dotted notes
 	    }
-	    durations[thisNote/2] = noteDuration;
-	 }
 
-}
+	    // we only play the note for 90% of the duration, leaving 10% as a pause
+	    tone(htim, channel, melody[thisNote], noteDuration*0.9);
 
-int curNote = 0;
-int lenNote = 0;
+	    // Wait for the specief duration before playing the next note.
+	    osDelay(noteDuration*0.1);
 
-int play = 1;
-
-void playOpeningSound(TIM_HandleTypeDef *htim, uint32_t channel) {
-	if (lenNote == 0) {
-		tone(&htim1, TIM_CHANNEL_2, melody[curNote * 2]);
-	}
-	curNote = curNote % notes;
-	lenNote++;
-	if (lenNote > (int)(durations[curNote])) {
-		lenNote = 0;
-		curNote++;
-		noTone(&htim1, TIM_CHANNEL_2);
-	}
+	    // stop the waveform generation before the next note.
+	    noTone(htim, channel);
+	  }
 	    // we only play the note for 90% of the duration, leaving 10% as a pause
 }
 
@@ -436,8 +435,8 @@ void playSound(TIM_HandleTypeDef *htim, uint32_t channel) {
 	}
 	else {
 		play2 = 0;
-		tone(&htim1, TIM_CHANNEL_2, NOTE_B4);
-		osDelay(100);
+		tone(&htim1, TIM_CHANNEL_2, NOTE_B4, 50);
+//		osDelay(100);
 		noTone(&htim1, TIM_CHANNEL_2);
 	}
 	    // we only play the note for 90% of the duration, leaving 10% as a pause
@@ -451,8 +450,8 @@ void playSound3(TIM_HandleTypeDef *htim, uint32_t channel) {
 	}
 	else {
 		play3 = 0;
-		tone(&htim1, TIM_CHANNEL_2, NOTE_E5);
-		osDelay(100);
+		tone(&htim1, TIM_CHANNEL_2, NOTE_E5, 50);
+//		osDelay(100);
 		noTone(&htim1, TIM_CHANNEL_2);
 	}
 	    // we only play the note for 90% of the duration, leaving 10% as a pause
@@ -556,6 +555,7 @@ int main(void)
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
+  songTaskHandle = osThreadNew(StartSongTask, NULL, &songTask_attributes);
   /* creation of GUI_Task */
   GUI_TaskHandle = osThreadNew(TouchGFX_Task, NULL, &GUI_Task_attributes);
 
@@ -1400,15 +1400,14 @@ void LCD_Delay(uint32_t Delay)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	prepSound();
 
   /* Infinite loop */
   for(;;)
   {
-	  playOpeningSound(&htim1, TIM_CHANNEL_2);
 	  playSound(&htim1, TIM_CHANNEL_2);
 	  playSound3(&htim1, TIM_CHANNEL_2);
 	  random_number = TM_RNG_Get();
+
 	  if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_3) == GPIO_PIN_RESET){
 		  uint32_t count = osMessageQueueGetCount(myQueue01Handle);
 		  if (count < 2){
@@ -1442,8 +1441,21 @@ void StartDefaultTask(void *argument)
 
 	  osDelay(100);
   }
-  /* USER CODE END 5 */
 }
+
+void StartSongTask(void *argument)
+{
+
+  /* Infinite loop */
+  for(;;)
+  {
+	  playOpeningSound(&htim1, TIM_CHANNEL_2);
+	  osDelay(100);
+  }
+}
+  /* USER CODE END 5 */
+
+
 
 /**
   * @brief  Period elapsed callback in non blocking mode

@@ -222,13 +222,13 @@ void Screen1View::CreateGrid()
 }
 
 TetrominoType Screen1View::getRandomStarterTetrominoType(){
-	return tetrominoTypes[random(timerCount) % COUNT];
+	return tetrominoTypes[random(timerCount + random_number * 3) % COUNT];
 //	return tetrominoTypes[(timerCount + 3 * random_number + highestScore) % COUNT];
 }
 
 TetrominoType Screen1View::getRandomTetrominoType()
 {
-	return tetrominoTypes[random(timerCount) % COUNT];
+	return tetrominoTypes[random(timerCount + random_number) % COUNT];
 //    return tetrominoTypes[(tickCount + timerCount + highestScore + random_number) % COUNT];
 }
 

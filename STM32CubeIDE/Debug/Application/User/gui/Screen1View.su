@@ -30,8 +30,8 @@ E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Scre
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:134:6:void Tetromino::reset()	32	static
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:147:13:TetriTileID Tetromino::getTiles()	0	static
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:193:6:void Screen1View::gameOver()	0	static
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:224:15:TetrominoType Screen1View::getRandomStarterTetrominoType()	8	static
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:229:15:TetrominoType Screen1View::getRandomTetrominoType()	8	static
-E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:224:15:TetrominoType Screen1View::getRandomStarterTetrominoType()	0	static
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:235:13:TetriTileID Screen1View::findFreeTiles()	12	static
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:274:6:bool Screen1View::CheckCollision(int, int, Tetromino&)	32	static
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:248:6:void Screen1View::CreateNewTetromino(bool)	112	static
