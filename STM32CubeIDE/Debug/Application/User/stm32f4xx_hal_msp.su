@@ -11,6 +11,6 @@ E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:455:6:H
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:493:6:HAL_SPI_MspDeInit	0	static
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:523:6:HAL_TIM_Base_MspInit	8	static
 E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:540:6:HAL_TIM_MspPostInit	32	static
-E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:572:6:HAL_TIM_Base_MspDeInit	0	static
-E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:696:6:HAL_SDRAM_MspInit	48	static
-E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:782:6:HAL_SDRAM_MspDeInit	8	static
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:573:6:HAL_TIM_Base_MspDeInit	0	static
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:697:6:HAL_SDRAM_MspInit	48	static
+E:/stm/Tetris-with-STM32F4ZIT6-and-TouchGFX/Core/Src/stm32f4xx_hal_msp.c:783:6:HAL_SDRAM_MspDeInit	8	static

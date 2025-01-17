@@ -102,6 +102,11 @@ osMessageQueueId_t myQueue01Handle;
 const osMessageQueueAttr_t myQueue01_attributes = {
   .name = "Queue1"
 };
+
+osMessageQueueId_t SongQueueHandle;
+const osMessageQueueAttr_t SongQueue_attributes = {
+  .name = "SongQueue"
+};
 osStatus_t r_state;
 uint16_t highestScore;
 /* USER CODE END PV */
@@ -211,6 +216,10 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
   {
     Error_Handler();
   }
@@ -371,11 +380,6 @@ int melody[] = {
 
 };
 
-int durations[] = {
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-};
-
 int wholenote = (60000 * 4) / tempo;
 
 int divider = 0, noteDuration = 0;
@@ -401,7 +405,7 @@ void noTone(TIM_HandleTypeDef *htim, uint32_t channel) {
 
 int play = 0;
 
-void playOpeningSound(TIM_HandleTypeDef *htim, uint32_t channel) {
+void playBackGroundSound(TIM_HandleTypeDef *htim, uint32_t channel) {
 	  for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
 		  if (!play) return;
 	    // calculates the duration of each note
@@ -427,34 +431,22 @@ void playOpeningSound(TIM_HandleTypeDef *htim, uint32_t channel) {
 	    // we only play the note for 90% of the duration, leaving 10% as a pause
 }
 
-int play2 = 0;
-void playSound(TIM_HandleTypeDef *htim, uint32_t channel) {
-	if (!play2) {
-		noTone(&htim1, TIM_CHANNEL_2);
-		return;
-	}
-	else {
-		play2 = 0;
-		tone(&htim1, TIM_CHANNEL_2, NOTE_B4, 50);
-//		osDelay(100);
-		noTone(&htim1, TIM_CHANNEL_2);
-	}
-	    // we only play the note for 90% of the duration, leaving 10% as a pause
+void playSound2(TIM_HandleTypeDef *htim, uint32_t channel) {
+	tone(&htim1, TIM_CHANNEL_2, NOTE_B4, 50);
+//	osDelay(100);
+	noTone(&htim1, TIM_CHANNEL_2);
 }
 
-int play3 = 0;
 void playSound3(TIM_HandleTypeDef *htim, uint32_t channel) {
-	if (!play3) {
-		noTone(&htim1, TIM_CHANNEL_2);
-		return;
-	}
-	else {
-		play3 = 0;
-		tone(&htim1, TIM_CHANNEL_2, NOTE_E5, 50);
+	tone(&htim1, TIM_CHANNEL_2, NOTE_E5, 50);
 //		osDelay(100);
-		noTone(&htim1, TIM_CHANNEL_2);
-	}
-	    // we only play the note for 90% of the duration, leaving 10% as a pause
+	noTone(&htim1, TIM_CHANNEL_2);
+}
+
+void playSound4(TIM_HandleTypeDef *htim, uint32_t channel) {
+	tone(&htim1, TIM_CHANNEL_2, NOTE_C5, 50);
+//		osDelay(100);
+	noTone(&htim1, TIM_CHANNEL_2);
 }
 
 
@@ -549,17 +541,18 @@ int main(void)
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   myQueue01Handle = osMessageQueueNew(16, sizeof(uint16_t), &myQueue01_attributes);
+  SongQueueHandle = osMessageQueueNew(16, sizeof(uint16_t), &SongQueue_attributes);
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
-  songTaskHandle = osThreadNew(StartSongTask, NULL, &songTask_attributes);
   /* creation of GUI_Task */
   GUI_TaskHandle = osThreadNew(TouchGFX_Task, NULL, &GUI_Task_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
+  songTaskHandle = osThreadNew(StartSongTask, NULL, &songTask_attributes);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -915,6 +908,10 @@ static void MX_SPI5_Init(void)
 //  sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
 //  sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
 //  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+//  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
 //  {
 //    Error_Handler();
 //  }
@@ -1404,8 +1401,6 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  playSound(&htim1, TIM_CHANNEL_2);
-	  playSound3(&htim1, TIM_CHANNEL_2);
 	  random_number = TM_RNG_Get();
 
 	  if (HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_3) == GPIO_PIN_RESET){
@@ -1439,6 +1434,22 @@ void StartDefaultTask(void *argument)
 		  }
 	  }
 
+	  uint8_t count = osMessageQueueGetCount(SongQueueHandle);
+	  uint8_t res = 0;
+	  while(count > 0) {
+		  osMessageQueueGet(SongQueueHandle, &res, NULL, osWaitForever);
+		  if(res == '2') {
+			  playSound2(&htim1, TIM_CHANNEL_2);
+		  }
+		  else if(res == '3') {
+			  playSound3(&htim1, TIM_CHANNEL_2);
+		  }
+		  else if(res == '4') {
+			  playSound4(&htim1, TIM_CHANNEL_2);
+		  }
+		  count = osMessageQueueGetCount(SongQueueHandle);
+	  }
+
 	  osDelay(100);
   }
 }
@@ -1449,13 +1460,11 @@ void StartSongTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  playOpeningSound(&htim1, TIM_CHANNEL_2);
+	  playBackGroundSound(&htim1, TIM_CHANNEL_3);
 	  osDelay(100);
   }
-}
   /* USER CODE END 5 */
-
-
+}
 
 /**
   * @brief  Period elapsed callback in non blocking mode

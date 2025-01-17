@@ -7,9 +7,9 @@
 
 extern uint16_t highestScore;
 extern osMessageQueueId_t myQueue01Handle;
+extern osMessageQueueId_t SongQueueHandle;
 extern uint32_t random_number;
-extern int play2;
-extern int play3;
+extern int play;
 
 int random(int systick) {
     static int a = 828172;
@@ -203,6 +203,12 @@ void Screen1View::gameOver(){
 	for (int i=0; i < MAX_BLOCKS; i++){
 		boxes[i].setVisible(false);
 	}
+
+	uint32_t count = osMessageQueueGetCount(SongQueueHandle);
+	if (count < 2){
+	  uint8_t data = '4';
+	  osMessageQueuePut(SongQueueHandle, &data, 0, 10);
+	}
 }
 
 void Screen1View::CreateGrid()
@@ -249,6 +255,8 @@ void Screen1View::CreateNewTetromino(bool starter)
 {
     if(tetrominoActive || RestartButton.isVisible()) return; // Already an active tetromino
 
+    play = 1;
+
     int startX = maxX / 2;
     int startY = 0;
 
@@ -262,6 +270,8 @@ void Screen1View::CreateNewTetromino(bool starter)
     nextTetromino.initialize(type, nextStartX, nextStartY, step, findFreeTiles());
     // GAMEOVER
     if(CheckCollision(startX, startY, currentTetromino)) {
+    	play = 0;
+
         Screen1View::gameOver();
         invalidate();
         return; // Not tetrominoActive
@@ -370,7 +380,13 @@ void Screen1View::handleTickEvent()
             // Fix the current tetromino blocks
             bool checkFullRows[MAX_ROWS] = {};
             bool checkErase = false;
-            play2 = 1;
+
+			uint32_t count = osMessageQueueGetCount(SongQueueHandle);
+			if (count < 2){
+			  uint8_t data = '2';
+			  osMessageQueuePut(SongQueueHandle, &data, 0, 10);
+			}
+
             for(int i = 0; i < currentTetromino.getTileCount(); ++i) {
                 BoxWithBorder* tile = currentTetromino.getTile(i);
                 tile->setColor(touchgfx::Color::getColorFromRGB(200, 200, 200)); // Fixed block color
@@ -432,7 +448,11 @@ void Screen1View::eraseFullRows(bool* checkFullRows){
 		touchgfx::Unicode::snprintf(scoreBuffer2, SCOREBUFFER2_SIZE, "%u", currentScore);
 
 	}
-	play3 = 1;
+	uint32_t count = osMessageQueueGetCount(SongQueueHandle);
+	if (count < 2){
+	  uint8_t data = '3';
+	  osMessageQueuePut(SongQueueHandle, &data, 0, 10);
+	}
 	invalidate();
 }
 
